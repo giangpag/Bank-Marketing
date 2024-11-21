@@ -34,9 +34,22 @@ This project analyzes the outcomes of a bank's telemarketing campaign to predict
   - Target campaigns during peak months like May for higher success rates.
 
 ## Tools and Technologies
-- **Data Analysis**: Python (pandas, matplotlib, seaborn).
-- **Modeling**: Scikit-learn (Random Forest).
-- **Visualization**: Heatmaps, bar charts, and scatter plots for EDA.
+- **Data Analysis**:
+  - **R**: Utilized for data preparation, exploratory data analysis (EDA), and modeling.
+    - Key packages:
+      - `tidyverse` for data manipulation and visualization.
+      - `randomForest` for feature importance and predictive modeling.
+    - Example commands:
+      - Data cleaning: `dplyr()`, `tidyr::drop_na()`.
+      - Statistical summary: `summary()`, `cor()`.
+      - Random Forest: `randomForest(outcome ~ ., data = dataset, ntree = 100)`.
+
+- **Visualization**:
+  - **Power BI**: Designed interactive dashboards and visual reports to present analysis insights effectively.
+    - Visuals included:
+      - Correlation heatmaps to highlight feature relationships.
+      - Customer segmentation charts to identify high-potential segments.
+      - Campaign performance dashboards to compare success rates across different months and customer demographics.
 
 ## Conclusion
 By implementing the proposed strategies and focusing on identified customer segments, the bank can achieve a 15–25% increase in subscription rates while optimizing campaign costs by 10–20%.
