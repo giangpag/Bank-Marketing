@@ -41,6 +41,3 @@ This project analyzes the outcomes of a bank's telemarketing campaign to predict
 ## Conclusion
 By implementing the proposed strategies and focusing on identified customer segments, the bank can achieve a 15–25% increase in subscription rates while optimizing campaign costs by 10–20%.
 
----
-
-For further details, refer to the full report or contact the project team: **Data Bros**.
