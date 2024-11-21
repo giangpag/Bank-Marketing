@@ -32,25 +32,61 @@ This project analyzes the outcomes of a bank's telemarketing campaign to predict
   - Focus on longer, more detailed calls for increased subscription likelihood.
 - **Timing Optimization**:
   - Target campaigns during peak months like May for higher success rates.
-
 ## Tools and Technologies
-- **Data Analysis**:
-  - **R**: Utilized for data preparation, exploratory data analysis (EDA), and modeling.
-    - Key packages:
-      - `tidyverse` for data manipulation and visualization.
-      - `randomForest` for feature importance and predictive modeling.
-    - Example commands:
-      - Data cleaning: `dplyr()`, `tidyr::drop_na()`.
-      - Statistical summary: `summary()`, `cor()`.
-      - Random Forest: `randomForest(outcome ~ ., data = dataset, ntree = 100)`.
 
-- **Visualization**:
-  - **Power BI**: Designed interactive dashboards and visual reports to present analysis insights effectively.
-    - Visuals included:
-      - Correlation heatmaps to highlight feature relationships.
-      - Customer segmentation charts to identify high-potential segments.
-      - Campaign performance dashboards to compare success rates across different months and customer demographics.
+### Data Analysis
+- **R**: Used for comprehensive data preparation, cleaning, and exploratory analysis.  
+  - **Data Cleaning**:
+    - Checked for missing values: `colSums(is.na(data))`.
+    - Removed missing data: `data <- na.omit(data)`.
+    - Imputed missing values using `mice` package: 
+      ```R
+      library(mice)
+      data <- mice(data, method = 'mean', m = 1)
+      ```
+    - Removed outliers: 
+      ```R
+      data <- data[data$balance < quantile(data$balance, 0.99), ]
+      ```
+  - **Data Transformation**:
+    - Converted categorical variables to factors:
+      ```R
+      data$job <- as.factor(data$job)
+      data$marital <- as.factor(data$marital)
+      ```
+  - **Statistical Analysis**:
+    - Summary statistics: `summary(data$balance)` and `summary(data$age)`.
 
+### Visualization
+- **R for Static Visualizations**:
+  - Histograms:
+    ```R
+    hist(data$age, main="Distribution of Age", xlab="Age", col="lightblue")
+    ```
+  - Boxplots:
+    ```R
+    boxplot(data$balance, main="Balance", ylab="Số dư")
+    ```
+  - Barplots:
+    ```R
+    job_counts <- table(data$job)
+    barplot(job_counts, main="Frequency of Job Types", col="lightblue")
+    ```
+
+- **Power BI for Interactive Visualizations**:
+  - Built dashboards to:
+    - Display correlation heatmaps.
+    - Show customer segmentation charts.
+    - Highlight campaign performance by month and demographic groups.
+  - Delivered actionable insights via interactive filters and dynamic visuals.
+
+### Modeling
+- **R**:
+  - Random Forest for feature importance:
+    ```R
+    library(randomForest)
+    model <- randomForest(outcome ~ ., data = dataset, ntree = 100)
+    ```
 ## Conclusion
 By implementing the proposed strategies and focusing on identified customer segments, the bank can achieve a 15–25% increase in subscription rates while optimizing campaign costs by 10–20%.
 
